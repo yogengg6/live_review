@@ -1,0 +1,93 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  background-color: #28a817;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  display: inline-block;
+  font-size: 14px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: none;
+}
+
+.table-container {
+  display: flex;
+  justify-content: center; 
+  /* margin-top: 100px;  */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 50px 100px 0;  
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+form input, form textarea {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-family: Arial, sans-serif;
+}
+
+form textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+form button {
+  margin-top: 10px;
+}
+
+.btn-place{
+  margin-top: 40px;
+}
+
+.wrapper{
+  padding: 20px;
+}
+
+.btn-place a {
+  text-decoration: none; 
+  color: white; 
+}
