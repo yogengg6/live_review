@@ -12,16 +12,17 @@ function ReviewList() {
     axios.get(`${process.env.REACT_APP_API_URL}/`)
       .then(response => setReviews(response.data))
       .catch(error => console.error(error));
-    console.log(process.env.REACT_APP_API_URL);
+
     socket.on('reviewUpdated', (review) => {
-      if (review.id) {
-        setReviews(reviews => reviews.filter(r => r._id !== review.id));
+      if (review._id) {
+        setReviews(reviews => reviews.filter(r => r._id !== review._id));
+        setReviews(reviews => [review, ...reviews]);
       } else {
         setReviews(reviews => [review, ...reviews]);
       }
     });
 
-    return () => socket.off('reviewChange');
+    return () => socket.off('reviewUpdated');
   }, []);
 
   const handleDelete = (id) => {
@@ -37,6 +38,7 @@ function ReviewList() {
             <thead>
             <tr>
                 <th>#</th>
+                <th>id</th>
                 <th>Title</th>
                 <th>Content</th>
                 <th>Date-time</th>
@@ -47,6 +49,7 @@ function ReviewList() {
             <tbody>
             {reviews.map((review, index) => (
                 <tr key={review._id}>
+                <td>{review._id}</td>
                 <td>{index + 1}</td>
                 <td>{review.title}</td>
                 <td>{review.content}</td>

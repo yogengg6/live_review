@@ -11,7 +11,7 @@ const server = http.createServer(app);
 
 const io = socketIo(server, {
   cors: {
-    origin: process.env.REACT_APP_URI, // Allow requests from this origin
+    origin: process.env.REACT_APP_URI, 
     methods: ["GET", "POST","PUT","DELETE"],
   },
 });
@@ -29,7 +29,7 @@ io.on('connection', (socket) => {
 });
 
 app.use(cors({
-  origin: process.env.REACT_APP_URI, // Allow requests from this origin
+  origin: process.env.REACT_APP_URI,
 }));
 
 app.get('/', async (req, res) => {
@@ -39,7 +39,6 @@ app.get('/', async (req, res) => {
 
 app.get('/:id', async (req, res) => {
   const review = await Review.findById(req.params.id);
-  io.emit('reviewUpdated', review);
   res.json(review);
 });
 
